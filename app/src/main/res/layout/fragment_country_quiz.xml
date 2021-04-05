@@ -3,12 +3,47 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CountryQuiz">
+    tools:context=".CountryQuizFragment"
+    android:clickable="true"
+    android:background="@color/white">
 
     <!-- TODO: Update blank fragment layout -->
+
+
     <TextView
+        android:id="@+id/questionText"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="178dp"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:translationY="300px" />
+
+    <RadioButton
+        android:id="@+id/radioButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RadioButton"
+        android:translationX="250px"
+        android:translationY="600px"/>
+
+    <RadioButton
+        android:id="@+id/radioButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RadioButton"
+        android:translationX="250px"
+        android:translationY="700px"/>
+
+    <RadioButton
+        android:id="@+id/radioButton3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RadioButton"
+        android:translationX="250px"
+        android:translationY="800px"/>
+
 
 </FrameLayout>
+
