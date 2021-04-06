@@ -38,6 +38,7 @@ public class CountryQuizFragment extends Fragment {
     private String continent2;
     private String continent3;
     private TextView question;
+    private TextView questionNumber;
     private RadioButton choice1;
     private RadioButton choice2;
     private RadioButton choice3;
@@ -80,9 +81,17 @@ public class CountryQuizFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         View quizView = inflater.inflate(R.layout.fragment_country_quiz, container, false);
-        quizView.setBackgroundColor(Color.WHITE);
+
+
+        Bundle bundle = getArguments();
+        int questionIndex = bundle.getInt("questionNumber");
+
+        questionNumber = (TextView) quizView.findViewById(R.id.questionNumber);
+        questionNumber.setText(Integer.toString(questionIndex));
+
 
         Random random = new Random();
 
@@ -93,7 +102,7 @@ public class CountryQuizFragment extends Fragment {
         choice2 = (RadioButton) quizView.findViewById(R.id.radioButton2); // radio button 2
         choice3 = (RadioButton) quizView.findViewById(R.id.radioButton3); // radio button 3
 
-        RadioButton [] buttons = {choice1, choice2, choice3};
+        RadioButton[] buttons = {choice1, choice2, choice3};
 
         continents.add("North America");
         continents.add("South America");
@@ -102,28 +111,38 @@ public class CountryQuizFragment extends Fragment {
         continents.add("Asia");
         continents.add("Oceania");
 
-        index = random.nextInt(continents.size());
-        continent1 = continents.get(index);
-        index = random.nextInt(continents.size());
-        continent2 = continents.get(index);
-        index = random.nextInt(continents.size());
-        continent3 = continents.get(index);
+        while (true) {
+            index = random.nextInt(continents.size());
+            continent1 = continents.get(index);
+            index = random.nextInt(continents.size());
+            continent2 = continents.get(index);
 
-        choice1.setText(continent1);
-        choice2.setText(continent2);
-        choice3.setText(continent3);
+            if(continent1.equals(continent2))
+            {
+                continent1 =  continents.get(index);
+            }
+            index = random.nextInt(continents.size());
+            continent3 = continents.get(index);
 
-        /*
-        while(isTheSame)
-        {
+            if(continent2.equals(continent3))
+            {
+                index = random.nextInt(continents.size());
+                continent2 = continents.get(index);
+            }
 
+            if(continent1.equals(continent3))
+            {
+                continent3 = continents.get(index);
+            }
+
+            if (!(continent1.equals(continent2)) && !(continent2.equals(continent3)) && !(continent1.equals(continent3)))
+            {
+                break;
+            } else {
+                continue;
+            }
         }
 
-        for(int i = 0; i < buttons.length; i++)
-        {
-            buttons[i].setText();
-        }
-*/
         question.setText("What continent is " + country_Name + " a part of?");
         choice1.setText(continent1);
         choice2.setText(continent2);

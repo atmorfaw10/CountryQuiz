@@ -20,29 +20,45 @@
         android:textStyle="bold"
         android:translationY="300px" />
 
-    <RadioButton
-        android:id="@+id/radioButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="RadioButton"
-        android:translationX="250px"
-        android:translationY="600px"/>
+    <RadioGroup
+        android:id="@+id/radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
 
-    <RadioButton
-        android:id="@+id/radioButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="RadioButton"
-        android:translationX="250px"
-        android:translationY="700px"/>
+        <RadioButton
+            android:id="@+id/radioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="RadioButton"
+            android:translationX="250px"
+            android:translationY="600px"/>
 
-    <RadioButton
-        android:id="@+id/radioButton3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="RadioButton"
-        android:translationX="250px"
-        android:translationY="800px"/>
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="RadioButton"
+            android:translationX="250px"
+            android:translationY="700px"/>
+
+        <RadioButton
+            android:id="@+id/radioButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="RadioButton"
+            android:translationX="250px"
+            android:translationY="800px"/>
+</RadioGroup>
+
+    <TextView
+        android:id="@+id/questionNumber"
+        android:layout_width="30dp"
+        android:layout_height="40dp"
+        android:text="1"
+        android:translationX="170px"
+        android:translationY="510px"
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
 
 
 </FrameLayout>

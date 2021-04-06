@@ -3,6 +3,7 @@ package edu.cs.uga.countryquiz;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -30,8 +31,8 @@ public class SplashActivity extends AppCompatActivity {
         newQuiz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.mainContainer, new CountryQuizFragment()).commit();
+                Intent countryQ = new Intent(SplashActivity.this, CountryQuizActivity.class);
+                startActivity(countryQ);
             }
         });
 

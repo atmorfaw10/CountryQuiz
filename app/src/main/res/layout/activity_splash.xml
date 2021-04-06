@@ -8,7 +8,6 @@
     tools:context=".SplashActivity"
     android:id="@+id/mainContainer">
 
-
     <LinearLayout
         android:id="@+id/btn_wrapper"
         android:layout_width="415dp"
@@ -79,6 +78,7 @@
             app:layout_constraintVertical_bias="0.642" />
 
     </LinearLayout>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

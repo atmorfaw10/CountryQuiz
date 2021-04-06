@@ -7,11 +7,11 @@
     tools:context=".CountryQuizActivity">
 
 
-<fragment
-    android:name="edu.cs.uga.countryquiz.CountryQuizFragment"
-    android:id="@+id/quizFragment"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" >
-</fragment>
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/view_Pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
