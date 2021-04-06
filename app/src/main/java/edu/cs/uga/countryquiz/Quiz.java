@@ -1,5 +1,6 @@
 package edu.cs.uga.countryquiz;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Quiz {
@@ -18,6 +19,7 @@ public class Quiz {
     public Quiz(String date, List<String> questions, int result) {
         this.id = -1;
         this.date = date;
+        this.questions = new ArrayList<>();
         for (String question: questions) {
             this.questions.add(question);
         }
