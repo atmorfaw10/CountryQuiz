@@ -9,10 +9,16 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 
 public class SwipeAdapter extends FragmentStatePagerAdapter {
 
+    private Quiz newQuiz;
+
     public SwipeAdapter(FragmentManager fragmentManager) {
         super(fragmentManager);
     }
 
+    public SwipeAdapter(FragmentManager fragmentManager, Quiz newQuiz){
+        super(fragmentManager);
+        this.newQuiz = newQuiz;
+    }
     /**
      * Return the Fragment associated with a specified position.
      *
@@ -24,6 +30,7 @@ public class SwipeAdapter extends FragmentStatePagerAdapter {
         Fragment pageFragment = new CountryQuizFragment();
         Bundle bundle = new Bundle();
         bundle.putInt("questionNumber", position+1);
+        bundle.putSerializable("newQuiz", newQuiz);
         pageFragment.setArguments(bundle);
 
         return pageFragment;
@@ -36,4 +43,5 @@ public class SwipeAdapter extends FragmentStatePagerAdapter {
     public int getCount() {
         return 6;
     }
+
 }
