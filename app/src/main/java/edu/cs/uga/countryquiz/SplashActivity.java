@@ -41,8 +41,7 @@ public class SplashActivity extends AppCompatActivity {
         newQuiz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent countryQ = new Intent(SplashActivity.this, CountryQuizActivity.class);
-                startActivity(countryQ);
+                new RetrieveCountriesForQuizTask().execute();
             }
         });
 
@@ -52,9 +51,9 @@ public class SplashActivity extends AppCompatActivity {
         reviewQuiz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new RetrievaAllPastQuizzesTask().execute();
-                FragmentTransaction reviewTransaction = getSupportFragmentManager().beginTransaction();
-                reviewTransaction.replace(R.id.mainContainer, new ReviewQuizActivity()).commit()
+                new RetrieveAllPastQuizzesTask().execute();
+                Intent reviewQ = new Intent(SplashActivity.this, ReviewQuizActivity.class);
+                startActivity(reviewQ);
             }
         });
     }
