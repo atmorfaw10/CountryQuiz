@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ResultsFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/fragment_results_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your Quiz Data"
+            android:textFontWeight="@android:integer/config_mediumAnimTime"
+            android:textStyle="bold"
+            android:translationX="430px"
+            android:translationY="500px"
+            android:textColor="@color/black">
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date: "
+            android:textColor="@color/black"
+            android:textFontWeight="@android:integer/config_mediumAnimTime"
+            android:translationY="550px" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/quiz_questions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textFontWeight="@android:integer/config_mediumAnimTime"
+            android:text="Question(s): "
+            android:translationX="-105px"
+            android:translationY="670px">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/quiz_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Score: "
+            android:textFontWeight="@android:integer/config_mediumAnimTime"
+            android:textColor="@color/black"
+            android:translationX="-305px"
+            android:translationY="800px">
+
+        </TextView>
+
+        <Button
+            android:id="@+id/fragment_quiz"
+            android:layout_width="139dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:text="Button"
+            android:translationX="-250px"
+            android:translationY="100px" />
+
+        <Button
+            android:id="@+id/fragment_review"
+            android:layout_width="wrap_content"
+            android:layout_height="43dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:text="Button"
+            android:translationX="-500px"
+            android:translationY="500px" />
+
+
+    </LinearLayout>
+
+</FrameLayout>

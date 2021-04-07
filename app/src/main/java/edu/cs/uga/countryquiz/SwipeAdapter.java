@@ -28,6 +28,10 @@ public class SwipeAdapter extends FragmentStatePagerAdapter {
     @Override
     public Fragment getItem(int position) {
         Fragment pageFragment = new CountryQuizFragment();
+        /*
+            Here, check the position, and if position is past the last question [6]
+            create a quiz result fragment
+         */
         Bundle bundle = new Bundle();
         bundle.putInt("questionNumber", position+1);
         bundle.putSerializable("newQuiz", newQuiz);
