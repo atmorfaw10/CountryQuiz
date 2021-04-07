@@ -8,6 +8,7 @@
     tools:context=".SplashActivity"
     android:id="@+id/mainContainer">
 
+
     <LinearLayout
         android:id="@+id/btn_wrapper"
         android:layout_width="415dp"
@@ -26,6 +27,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="A simple quiz application testing the user's knowledge of countries and continents "
+            android:textSize="16sp"
             android:translationY="550px"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -35,50 +37,34 @@
             app:layout_constraintVertical_bias="0.348" />
 
         <Button
-            android:id="@+id/button"
-            android:layout_width="203dp"
-            android:layout_height="wrap_content"
-            android:background="#504E4E"
-            android:text="Start New Quiz"
-            android:translationX="300px"
-            android:translationY="800px"
-            app:backgroundTint="#150505"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.475" />
-
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="141dp"
-            android:layout_height="146dp"
-            android:translationX="370px"
-            android:translationY="-100px"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.487"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.073"
-            app:srcCompat="@drawable/globe2" />
-
-        <Button
             android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:text="Review Past Quizzes"
-            android:translationX="300px"
-            android:translationY="600px"
-            app:backgroundTint="#1B0303"
+            android:translationY="975px"
+            app:backgroundTint="#000000"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.642" />
 
-    </LinearLayout>
+        <Button
+            android:id="@+id/button"
+            android:layout_width="203dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Start New Quiz"
+            android:translationY="550px"
+            app:backgroundTint="#000000"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.475" />
 
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

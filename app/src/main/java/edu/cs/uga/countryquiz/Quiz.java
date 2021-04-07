@@ -1,18 +1,21 @@
 package edu.cs.uga.countryquiz;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Quiz {
+public class Quiz implements Serializable {
     private long id;
     private String date;
     private List<String> questions;
+    private List<String> questionAnswers;
     private int result;
 
     public Quiz() {
         this.id = -1;
         this.date = null;
         this.questions = null;
+        this.questionAnswers = null;
         this.result = 0;
     }
 
@@ -20,11 +23,25 @@ public class Quiz {
         this.id = -1;
         this.date = date;
         this.questions = new ArrayList<>();
+        this.questionAnswers = new ArrayList<>();
         for (String question: questions) {
             this.questions.add(question);
         }
         this.result = result;
+    }
 
+    public Quiz(String date, List<String> questions, List<String> questionAnswers, int result) {
+        this.id = -1;
+        this.date = date;
+        this.questions = new ArrayList<>();
+        this.questionAnswers = new ArrayList<>();
+        for (String question: questions) {
+            this.questions.add(question);
+        }
+        for (String answer: questionAnswers) {
+            this.questionAnswers.add(answer);
+        }
+        this.result = result;
     }
 
     public long getId() {
@@ -48,8 +65,24 @@ public class Quiz {
     }
 
     public void setQuestions(List<String> questions) {
+        if (this.questions == null)
+            this.questions = new ArrayList<>();
+
         for (String question: questions) {
             this.questions.add(question);
+        }
+    }
+
+    public List<String> getQuestionAnswers() {
+        return questionAnswers;
+    }
+
+    public void setQuestionAnswers(List<String> questionAnswers) {
+        if (this.questionAnswers == null)
+            this.questionAnswers = new ArrayList<>();
+
+        for (String answer: questionAnswers) {
+            this.questions.add(answer);
         }
     }
 

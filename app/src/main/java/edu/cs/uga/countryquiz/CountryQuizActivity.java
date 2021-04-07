@@ -8,27 +8,26 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.widget.RadioGroup;
 import android.widget.RadioButton;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.content.Intent;
 
 import java.text.DateFormat;
 import java.util.Calendar;
-import java.util.Date;
-
 
 public class CountryQuizActivity extends AppCompatActivity {
-    RadioGroup radioGroup;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_country_quiz);
 
-        radioGroup = (RadioGroup) findViewById(R.id.radio_group);
+        RadioGroup radioGroup = (RadioGroup) findViewById(R.id.radio_group);
+
+        Intent intent = this.getIntent();
+        Bundle args = intent.getExtras();
+        Quiz newQuiz = (Quiz) args.getSerializable("newQuiz");
 
         Calendar calendar = Calendar.getInstance();
         String quizDate = DateFormat.getDateInstance().format(calendar.getTime());
-        Quiz newQuiz = new Quiz();
-
         newQuiz.setDate(quizDate);
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_Pager);
@@ -36,18 +35,11 @@ public class CountryQuizActivity extends AppCompatActivity {
         SwipeAdapter swipeAdapter = new SwipeAdapter(getSupportFragmentManager());
         viewPager.setAdapter(swipeAdapter);
         viewPager.setCurrentItem(0);
-        //validation();
-        
-    }
-    public void validation()
-    {
-        int isSelected = radioGroup.getCheckedRadioButtonId();
 
-        if(isSelected == -1)
-        {
-            Toast.makeText(CountryQuizActivity.this, "Please select a continent", Toast.LENGTH_LONG).show();
-            return;
-        }
+
+
+
+
 
     }
 }

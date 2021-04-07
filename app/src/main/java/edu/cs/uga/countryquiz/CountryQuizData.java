@@ -185,7 +185,7 @@ public class CountryQuizData {
         try {
             //Execute the select query and get the Cursor to iterate over the retrieved rows
             cursor = db.query(CountryQuizDBHelper.TABLE_COUNTRIES, allCountriesTableColumns,
-                                null, null, null, null, null);
+                    null, null, null, null, null);
 
             //collect all countries into a List
             if (cursor.getCount() > 0) {
@@ -218,7 +218,7 @@ public class CountryQuizData {
         return countries;
     }
 
-    public List<Quiz> retrieveAllQuizzes() {
+    public ArrayList<Quiz> retrieveAllQuizzes() {
         ArrayList<Quiz> quizzes = new ArrayList<>();
         Cursor cursor = null;
 
