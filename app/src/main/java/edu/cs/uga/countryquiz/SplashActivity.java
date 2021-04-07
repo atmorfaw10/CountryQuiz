@@ -42,8 +42,8 @@ public class SplashActivity extends AppCompatActivity {
         reviewQuiz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentTransaction reviewTransaction = getSupportFragmentManager().beginTransaction();
-                reviewTransaction.replace(R.id.mainContainer, new ReviewQuiz()).commit();
+                Intent reviewQuiz = new Intent(SplashActivity.this, ReviewQuizActivity.class);
+                startActivity(reviewQuiz);
             }
         });
     }
