@@ -75,6 +75,8 @@ public class ResultsFragment extends Fragment {
         // Inflate the layout for this fragment
         View resultsView = inflater.inflate(R.layout.fragment_results, container, false);
 
+        countryQuizData = new CountryQuizData(getActivity());
+        countryQuizData.open();
         newerQuizButton = (Button) resultsView.findViewById(R.id.new_quiz_button);
         reviewPageButton = (Button) resultsView.findViewById(R.id.review_quizzes);
 

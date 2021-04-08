@@ -32,6 +32,7 @@ public class ReviewQuizActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d(DEBUG_TAG, "ReviewQuizActivity");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_review_quiz);
 
@@ -46,8 +47,7 @@ public class ReviewQuizActivity extends AppCompatActivity {
 
         //Execute the retrieval of the job leads in an asynchronous way,
         //without blocking the UI thread.
-
-
+        new CountryQuizDBReaderTask().execute();
     }
 
    // This is an AsyncTask class (it extends AsyncTask) to perform DB reading of job leads, asynchronously.
@@ -89,6 +89,7 @@ public class ReviewQuizActivity extends AppCompatActivity {
         if( countryQuizData != null )
             countryQuizData.open();
         super.onResume();
+        //recyclerView.setAdapter(recyclerAdapter);
     }
 
     @Override
