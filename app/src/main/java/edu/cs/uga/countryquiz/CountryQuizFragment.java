@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
@@ -101,6 +102,8 @@ public class CountryQuizFragment extends Fragment {
         //country_Name = "Angola"; //Using Angola for testing purpose, will use random generator later
         country_Name = newQuizQuestions.get(questionIndex-1);
         question = (TextView) quizView.findViewById(R.id.questionText); // initialize question text view
+        RadioGroup radioGroup = (RadioGroup) quizView.findViewById(R.id.radio_group);
+        radioGroup.check(R.id.radioButton);
         choice1 = (RadioButton) quizView.findViewById(R.id.radioButton); // radio button 1
         choice2 = (RadioButton) quizView.findViewById(R.id.radioButton2); // radio button 2
         choice3 = (RadioButton) quizView.findViewById(R.id.radioButton3); // radio button 3
