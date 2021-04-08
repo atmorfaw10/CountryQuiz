@@ -189,8 +189,6 @@ public class CountryQuizFragment extends Fragment {
                 }
                 if(questionIndex == 6 && selectedAnswer.equalsIgnoreCase(correctAnswer)){
                     ResultsFragment.results = 1;
-                } else if(questionIndex == 6 && !selectedAnswer.equalsIgnoreCase(correctAnswer)){
-                    ResultsFragment.results = 2;
                 }
 
                 Log.d(DEBUG_TAG, "Choice Selected: " + selectedAnswer);
