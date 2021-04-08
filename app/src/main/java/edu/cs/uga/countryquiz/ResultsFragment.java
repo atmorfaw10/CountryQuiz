@@ -3,9 +3,6 @@ package edu.cs.uga.countryquiz;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -97,14 +94,15 @@ public class ResultsFragment extends Fragment {
         Quiz newQuiz = (Quiz) bundle.getSerializable("newQuiz");
         newQuiz.setResult(result);
         dateTextView.setText("Date: " + newQuiz.getDate());
-        if(ResultsFragment.results == 1){
-            result++;
-            ResultsFragment.results = 0;
-        }else if(ResultsFragment.results == 2){
-            result--;
-            ResultsFragment.results = 0;
-        }
-        quizScoreTextView.setText("Quiz Score: " + result + "/6");
+//        if(ResultsFragment.results == 1){
+//            result++;
+//            ResultsFragment.results = 0;
+//        }else if(ResultsFragment.results == 2){
+//            result--;
+//            ResultsFragment.results = 0;
+//        }
+        newQuiz.setResult(ResultsFragment.results);
+        quizScoreTextView.setText("Quiz Score: " + ResultsFragment.results + "/6");
         new StoreQuizTask().execute(newQuiz);
 
         /*

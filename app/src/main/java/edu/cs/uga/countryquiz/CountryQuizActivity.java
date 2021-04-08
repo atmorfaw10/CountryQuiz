@@ -34,7 +34,7 @@ public class CountryQuizActivity extends AppCompatActivity {
         viewPager.setOffscreenPageLimit(0);
         swipeAdapter = new SwipeAdapter(getSupportFragmentManager(), newQuiz);
         viewPager.setAdapter(swipeAdapter);
-        viewPager.setCurrentItem(0);
+        viewPager.setCurrentItem(1);
     }
 
     @Override

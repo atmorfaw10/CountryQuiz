@@ -45,6 +45,7 @@ public class CountryQuizFragment extends Fragment {
     private RadioButton choice2;
     private RadioButton choice3;
     protected String selectedAnswer;
+    private boolean correctAnswerSelected;
 
     private ArrayList<String> continents = new ArrayList<>();
     boolean isTheSame = true;
@@ -172,6 +173,12 @@ public class CountryQuizFragment extends Fragment {
 
         question.setText(questionIndex + ". What continent is " + country_Name + " a part of?");
         selectedAnswer = continent1;
+        if(selectedAnswer.equalsIgnoreCase(correctAnswer)){
+            ResultsFragment.results++;
+            correctAnswerSelected = true;
+        } else {
+            correctAnswerSelected = false;
+        }
 
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -187,8 +194,12 @@ public class CountryQuizFragment extends Fragment {
                         selectedAnswer = choice3.getText().toString();
                         break;
                 }
-                if(questionIndex == 6 && selectedAnswer.equalsIgnoreCase(correctAnswer)){
-                    ResultsFragment.results = 1;
+                if(selectedAnswer.equalsIgnoreCase(correctAnswer) && !correctAnswerSelected){
+                    ResultsFragment.results++;
+                    correctAnswerSelected = true;
+                } else if(!selectedAnswer.equalsIgnoreCase(correctAnswer) && correctAnswerSelected){
+                    ResultsFragment.results--;
+                    correctAnswerSelected = false;
                 }
 
                 Log.d(DEBUG_TAG, "Choice Selected: " + selectedAnswer);
