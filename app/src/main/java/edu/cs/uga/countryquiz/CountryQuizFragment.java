@@ -49,6 +49,7 @@ public class CountryQuizFragment extends Fragment {
     private ArrayList<String> continents = new ArrayList<>();
     boolean isTheSame = true;
     int index;
+    private int questionIndex;
 
 
     public CountryQuizFragment() {
@@ -91,7 +92,7 @@ public class CountryQuizFragment extends Fragment {
 
 
         Bundle bundle = getArguments();
-        int questionIndex = bundle.getInt("questionNumber");
+        questionIndex = bundle.getInt("questionNumber");
 
         //questionNumber = (TextView) quizView.findViewById(R.id.questionNumber);
         //questionNumber.setText(Integer.toString(questionIndex));
@@ -186,6 +187,12 @@ public class CountryQuizFragment extends Fragment {
                         selectedAnswer = choice3.getText().toString();
                         break;
                 }
+                if(questionIndex == 6 && selectedAnswer.equalsIgnoreCase(correctAnswer)){
+                    ResultsFragment.results = 1;
+                } else if(questionIndex == 6 && selectedAnswer.equalsIgnoreCase(correctAnswer)){
+                    ResultsFragment.results = 2;
+                }
+
                 Log.d(DEBUG_TAG, "Choice Selected: " + selectedAnswer);
             }
         });

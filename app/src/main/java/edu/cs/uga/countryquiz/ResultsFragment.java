@@ -34,10 +34,11 @@ public class ResultsFragment extends Fragment {
     private String mParam2;
 
     private static final String DEBUG_TAG = "ResultsFragment"; //DEBUG_TAG
+    public static int results = 0;
     private Button newerQuizButton;
     private Button reviewPageButton;
     private TextView dateTextView;
-    private TextView quizScoreTextView;
+    protected TextView quizScoreTextView;
 
     private CountryQuizData countryQuizData = null;
 
@@ -93,6 +94,13 @@ public class ResultsFragment extends Fragment {
         Quiz newQuiz = (Quiz) bundle.getSerializable("newQuiz");
         newQuiz.setResult(result);
         dateTextView.setText("Date: " + newQuiz.getDate());
+        if(ResultsFragment.results == 1){
+            result++;
+            ResultsFragment.results = 0;
+        }else if(ResultsFragment.results == 2){
+            result--;
+            ResultsFragment.results = 0;
+        }
         quizScoreTextView.setText("Quiz Score: " + result + "/6");
         new StoreQuizTask().execute(newQuiz);
 

@@ -17,18 +17,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Date: "
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.202"
+            app:layout_constraintHorizontal_bias="0.194"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.377" />
+            app:layout_constraintVertical_bias="0.38" />
 
         <TextView
             android:id="@+id/quiz_results_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Your Quiz Results"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.45"
@@ -41,9 +43,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Quiz Score: "
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.225"
+            app:layout_constraintHorizontal_bias="0.194"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.466" />
