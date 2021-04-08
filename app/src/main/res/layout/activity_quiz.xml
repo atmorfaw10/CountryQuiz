@@ -32,13 +32,6 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/text_view_question"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Question"
-                android:textSize="18sp"
-                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/text_view_quiz_results"

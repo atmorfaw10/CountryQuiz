@@ -56,8 +56,8 @@ public class QuizLeadRecyclerAdapter extends RecyclerView.Adapter<QuizLeadRecycl
         Log.d(DEBUG_TAG, "onBindViewHolder: " + quiz);
 
 
-           holder.date.setText(quiz.getDate());
-           holder.quizScore.setText(quiz.getResult());
+           holder.date.setText(quiz.getDate() + " ");
+           holder.quizScore.setText(quiz.getResult() + " ");
 
 
     }
