@@ -18,6 +18,8 @@ public class SwipeAdapter extends FragmentStatePagerAdapter {
     private Quiz newQuiz;
     private List<CountryQuizFragment> pageFragments;
     private int quizResults;
+    private int fragPosition;
+    private Fragment theFragment;
 
     public SwipeAdapter(FragmentManager fragmentManager) {
         super(fragmentManager);
@@ -46,6 +48,9 @@ public class SwipeAdapter extends FragmentStatePagerAdapter {
             Here, check the position, and if position is past the last question [6]
             create a quiz result fragment
          */
+
+        setFragPosition(position);
+
        if(position >= 6) {
            Fragment pageFragment = new ResultsFragment();
            checkUserAnswerChoices();
@@ -62,6 +67,24 @@ public class SwipeAdapter extends FragmentStatePagerAdapter {
 
         return pageFragments.get(position);
     }
+
+    /**
+     * @return the fragment position
+     */
+    public int getFragPosition()
+    {
+        return this.fragPosition;
+    }
+
+    /**
+     * sets the fragment position
+     * @param thePosition
+     */
+    public void setFragPosition(int thePosition)
+    {
+        this.fragPosition = thePosition;
+    }
+
 
     /**
      * Return the number of views available.

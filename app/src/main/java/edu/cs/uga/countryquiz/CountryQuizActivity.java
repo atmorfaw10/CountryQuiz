@@ -11,6 +11,9 @@ import java.text.DateFormat;
 import java.util.Calendar;
 
 public class CountryQuizActivity extends AppCompatActivity {
+    private SwipeAdapter swipeAdapter;
+    private ViewPager viewPager;
+    private int thePos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,16 +30,26 @@ public class CountryQuizActivity extends AppCompatActivity {
         String quizDate = DateFormat.getDateInstance().format(calendar.getTime());
         newQuiz.setDate(quizDate);
 
-        ViewPager viewPager = (ViewPager) findViewById(R.id.view_Pager);
+        viewPager = (ViewPager) findViewById(R.id.view_Pager);
         viewPager.setOffscreenPageLimit(0);
-        SwipeAdapter swipeAdapter = new SwipeAdapter(getSupportFragmentManager(), newQuiz);
+        swipeAdapter = new SwipeAdapter(getSupportFragmentManager(), newQuiz);
         viewPager.setAdapter(swipeAdapter);
         viewPager.setCurrentItem(0);
-
-
-
-
-
-
     }
+
+    @Override
+    protected void onPause()
+    {
+        thePos = swipeAdapter.getFragPosition();
+        super.onPause();
+    }
+
+    @Override
+    protected void onResume()
+    {
+        viewPager.setCurrentItem(thePos - 1);
+        super.onResume();
+    }
+
+
 }
