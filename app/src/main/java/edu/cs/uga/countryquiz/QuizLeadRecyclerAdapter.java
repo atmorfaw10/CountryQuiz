@@ -27,14 +27,12 @@ public class QuizLeadRecyclerAdapter extends RecyclerView.Adapter<QuizLeadRecycl
     class QuizLeadHolder extends RecyclerView.ViewHolder {
         TextView date;
         TextView quizScore;
-        TextView question;
 
         public QuizLeadHolder (View itemView)
         {
             super(itemView);
             date = (TextView) itemView.findViewById(R.id.text_view_date);
             quizScore = (TextView) itemView.findViewById(R.id.text_view_quiz_results);
-            question = (TextView) itemView.findViewById(R.id.text_view_question);
         }
     }
 
@@ -58,9 +56,9 @@ public class QuizLeadRecyclerAdapter extends RecyclerView.Adapter<QuizLeadRecycl
         Log.d(DEBUG_TAG, "onBindViewHolder: " + quiz);
 
 
-           holder.date.setText(quiz.getDate());
-           holder.quizScore.setText(quiz.getResult());
-           //holder.question.setText(quiz.getQuestions().get(0));
+           holder.date.setText(quiz.getDate() + " ");
+           holder.quizScore.setText(quiz.getResult() + " ");
+
 
     }
 
