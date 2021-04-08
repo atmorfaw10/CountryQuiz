@@ -3,14 +3,14 @@ package edu.cs.uga.countryquiz;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
+
+import androidx.fragment.app.Fragment;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -36,6 +36,9 @@ public class ResultsFragment extends Fragment {
     private static final String DEBUG_TAG = "ResultsFragment"; //DEBUG_TAG
     private Button newerQuizButton;
     private Button reviewPageButton;
+    private TextView dateTextView;
+    private TextView quizScoreTextView;
+
     private CountryQuizData countryQuizData = null;
 
     public ResultsFragment() {
@@ -75,8 +78,23 @@ public class ResultsFragment extends Fragment {
         // Inflate the layout for this fragment
         View resultsView = inflater.inflate(R.layout.fragment_results, container, false);
 
+        countryQuizData = new CountryQuizData(getActivity());
+        countryQuizData.open();
+
+        dateTextView = (TextView) resultsView.findViewById(R.id.date);
+        quizScoreTextView = (TextView) resultsView.findViewById(R.id.quiz_score);
         newerQuizButton = (Button) resultsView.findViewById(R.id.new_quiz_button);
         reviewPageButton = (Button) resultsView.findViewById(R.id.review_quizzes);
+
+        Bundle bundle = getArguments();
+        int result = bundle.getInt("result");
+
+        //get newQuiz date retrieved from database
+        Quiz newQuiz = (Quiz) bundle.getSerializable("newQuiz");
+        newQuiz.setResult(result);
+        dateTextView.setText("Date: " + newQuiz.getDate());
+        quizScoreTextView.setText("Quiz Score: " + result + "/6");
+        new StoreQuizTask().execute(newQuiz);
 
         /*
          * When new Quiz button pressed, takes the user to the country quiz fragment
@@ -103,6 +121,23 @@ public class ResultsFragment extends Fragment {
         });
 
         return resultsView;
+    }
+
+    // This is an AsyncTask class (it extends AsyncTask) to writing new quiz to db, asynchronously.
+    private class StoreQuizTask extends AsyncTask<Quiz, Void, Quiz> {
+
+        // This method will run as a background process to read from db.
+        @Override
+        protected Quiz doInBackground(Quiz... newQuiz) {
+            return countryQuizData.storeQuiz(newQuiz[0]);
+        }
+
+        // This method will be automatically called by Android once the writing to the database
+        // in a background process has finished.
+        @Override
+        protected void onPostExecute(Quiz newQuiz) {
+            super.onPostExecute(newQuiz);
+        }
     }
 
     // This is an AsyncTask class (it extends AsyncTask) to perform DB reading of the countries for the quiz, asynchronously.

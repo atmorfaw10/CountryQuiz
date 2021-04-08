@@ -1,14 +1,11 @@
 package edu.cs.uga.countryquiz;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.viewpager.widget.ViewPager;
-
-import android.os.Bundle;
-import android.provider.MediaStore;
-import android.widget.RadioGroup;
-import android.widget.RadioButton;
 import android.content.Intent;
+import android.os.Bundle;
+import android.widget.RadioGroup;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 
 import java.text.DateFormat;
 import java.util.Calendar;
@@ -31,7 +28,7 @@ public class CountryQuizActivity extends AppCompatActivity {
         newQuiz.setDate(quizDate);
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_Pager);
-        viewPager.setOffscreenPageLimit(1);
+        viewPager.setOffscreenPageLimit(0);
         SwipeAdapter swipeAdapter = new SwipeAdapter(getSupportFragmentManager(), newQuiz);
         viewPager.setAdapter(swipeAdapter);
         viewPager.setCurrentItem(0);

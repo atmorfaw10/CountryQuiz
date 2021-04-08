@@ -1,6 +1,7 @@
 package edu.cs.uga.countryquiz;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +22,8 @@ import java.util.Random;
  */
 public class CountryQuizFragment extends Fragment {
 
+    public static final String DEBUG_TAG = "CountryQuizFragment";
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -37,9 +40,12 @@ public class CountryQuizFragment extends Fragment {
     private String continent3;
     private TextView question;
     private TextView questionNumber;
+    private RadioGroup radioGroup;
     private RadioButton choice1;
     private RadioButton choice2;
     private RadioButton choice3;
+    protected String selectedAnswer;
+
     private ArrayList<String> continents = new ArrayList<>();
     boolean isTheSame = true;
     int index;
@@ -102,7 +108,7 @@ public class CountryQuizFragment extends Fragment {
         //country_Name = "Angola"; //Using Angola for testing purpose, will use random generator later
         country_Name = newQuizQuestions.get(questionIndex-1);
         question = (TextView) quizView.findViewById(R.id.questionText); // initialize question text view
-        RadioGroup radioGroup = (RadioGroup) quizView.findViewById(R.id.radio_group);
+        radioGroup = (RadioGroup) quizView.findViewById(R.id.radio_group);
         radioGroup.check(R.id.radioButton);
         choice1 = (RadioButton) quizView.findViewById(R.id.radioButton); // radio button 1
         choice2 = (RadioButton) quizView.findViewById(R.id.radioButton2); // radio button 2
@@ -162,43 +168,27 @@ public class CountryQuizFragment extends Fragment {
                     nextAvailableChoiceIndex++;
             }
         }
-//        while (true) {
-//            index = random.nextInt(continents.size());
-//            continent1 = continents.get(index);
-//            index = random.nextInt(continents.size());
-//            continent2 = continents.get(index);
-//
-//            if(continent1.equals(continent2))
-//            {
-//                continent1 =  continents.get(index);
-//            }
-//            index = random.nextInt(continents.size());
-//            continent3 = continents.get(index);
-//
-//            if(continent2.equals(continent3))
-//            {
-//                index = random.nextInt(continents.size());
-//                continent2 = continents.get(index);
-//            }
-//
-//            if(continent1.equals(continent3))
-//            {
-//                continent3 = continents.get(index);
-//            }
-//
-//            if (!(continent1.equals(continent2)) && !(continent2.equals(continent3)) && !(continent1.equals(continent3)))
-//            {
-//                break;
-//            } else {
-//                continue;
-//            }
-//        }
 
         question.setText(questionIndex + ". What continent is " + country_Name + " a part of?");
-//        choice1.setText(continent1);
-//        choice2.setText(continent2);
-//        choice3.setText(continent3);
+        selectedAnswer = continent1;
 
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
+                switch(checkedId){
+                    case R.id.radioButton:
+                        selectedAnswer = choice1.getText().toString();
+                        break;
+                    case R.id.radioButton2:
+                        selectedAnswer = choice2.getText().toString();
+                        break;
+                    case R.id.radioButton3:
+                        selectedAnswer = choice3.getText().toString();
+                        break;
+                }
+                Log.d(DEBUG_TAG, "Choice Selected: " + selectedAnswer);
+            }
+        });
 
         return quizView;
     }
