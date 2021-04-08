@@ -19,6 +19,7 @@ public class SwipeAdapter extends FragmentStatePagerAdapter {
         super(fragmentManager);
         this.newQuiz = newQuiz;
     }
+
     /**
      * Return the Fragment associated with a specified position.
      *
@@ -27,11 +28,19 @@ public class SwipeAdapter extends FragmentStatePagerAdapter {
     @NonNull
     @Override
     public Fragment getItem(int position) {
-        Fragment pageFragment = new CountryQuizFragment();
+        Fragment pageFragment;
         /*
             Here, check the position, and if position is past the last question [6]
             create a quiz result fragment
          */
+       if(position <= 5)
+       {
+           pageFragment = new CountryQuizFragment();
+       } else
+       {
+           pageFragment = new ResultsFragment();
+       }
+
         Bundle bundle = new Bundle();
         bundle.putInt("questionNumber", position+1);
         bundle.putSerializable("newQuiz", newQuiz);
@@ -45,7 +54,7 @@ public class SwipeAdapter extends FragmentStatePagerAdapter {
      */
     @Override
     public int getCount() {
-        return 6;
+        return 7;
     }
 
 }

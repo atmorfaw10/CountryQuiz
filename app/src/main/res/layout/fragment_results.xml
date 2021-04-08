@@ -1,81 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ResultsFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/fragment_results_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Your Quiz Data"
-            android:textFontWeight="@android:integer/config_mediumAnimTime"
-            android:textStyle="bold"
-            android:translationX="430px"
-            android:translationY="500px"
-            android:textColor="@color/black">
-        </TextView>
 
         <TextView
+            android:id="@+id/date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Date: "
-            android:textColor="@color/black"
-            android:textFontWeight="@android:integer/config_mediumAnimTime"
-            android:translationY="550px" >
-        </TextView>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.202"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.377" />
 
         <TextView
-            android:id="@+id/quiz_questions"
+            android:id="@+id/quiz_results_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:textFontWeight="@android:integer/config_mediumAnimTime"
-            android:text="Question(s): "
-            android:translationX="-105px"
-            android:translationY="670px">
+            android:text="Your Quiz Results"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.45"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.271" />
 
-        </TextView>
+        <TextView
+            android:id="@+id/quiz_question"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Question: "
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.215"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.422" />
 
         <TextView
             android:id="@+id/quiz_score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Score: "
-            android:textFontWeight="@android:integer/config_mediumAnimTime"
-            android:textColor="@color/black"
-            android:translationX="-305px"
-            android:translationY="800px">
-
-        </TextView>
-
-        <Button
-            android:id="@+id/fragment_quiz"
-            android:layout_width="139dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:text="Button"
-            android:translationX="-250px"
-            android:translationY="100px" />
+            android:text="Quiz Score: "
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.225"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.466" />
 
         <Button
-            android:id="@+id/fragment_review"
+            android:id="@+id/new_quiz_button"
             android:layout_width="wrap_content"
-            android:layout_height="43dp"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:text="Button"
-            android:translationX="-500px"
-            android:translationY="500px" />
+            android:layout_height="wrap_content"
+            android:text="Start New Quiz"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.559" />
 
-
-    </LinearLayout>
+        <Button
+            android:id="@+id/review_quizzes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Review Past Quizzes"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.696" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
